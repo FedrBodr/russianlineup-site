@@ -20,8 +20,8 @@
 <script>
 window.SITE_CONFIG = {
   botUsername: "RussianLineupBot",   // @username бота без @
-  ymCounterId: 99999999,         // ID счётчика Яндекс.Метрики
-  ga4Id: "G-XXXXXXXXXX"          // Measurement ID GA4
+  ymCounterId: 110157768,        // ID счётчика Яндекс.Метрики
+  ga4Id: "G-6XY6XFGE6H"          // Measurement ID GA4
 };
 </script>
 
@@ -43,7 +43,7 @@ window.SITE_CONFIG = {
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 (function(){
   var id = (window.SITE_CONFIG||{}).ga4Id;
-  if(!id || id.indexOf("G-")!==0 || id.indexOf("X")!==-1) return; // плейсхолдер — не грузим
+  if(!id || id.indexOf("G-")!==0 || id === "G-XXXXXXXXXX") return; // плейсхолдер — не грузим
   var s=document.createElement("script");
   s.async=true; s.src="https://www.googletagmanager.com/gtag/js?id="+id;
   document.head.appendChild(s);
