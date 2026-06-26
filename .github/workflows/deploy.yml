@@ -1,0 +1,31 @@
+name: Deploy to reg.ru via FTP
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}       # напр. server123.hosting.reg.ru
+          username: ${{ secrets.FTP_USERNAME }}    # FTP-логин из панели reg.ru
+          password: ${{ secrets.FTP_PASSWORD }}    # FTP-пароль
+          # Корень сайта на хостинге. Уточни в панели reg.ru (часто /www/russianlineup.ru/ или public_html/)
+          server-dir: ${{ vars.FTP_SERVER_DIR }}
+          # Что НЕ заливать на хостинг
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/*.md
+            CONTENT_TODO.md
+            DEPLOY.md
+            README.md
