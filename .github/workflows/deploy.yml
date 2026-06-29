@@ -29,3 +29,4 @@ jobs:
             CONTENT_TODO.md
             DEPLOY.md
             README.md
+            assets-incoming/**

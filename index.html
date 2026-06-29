@@ -6,7 +6,9 @@
 <title>Русский Лайнап — электросёрф, тест-дни, кампы</title>
 <meta name="description" content="Русский Лайнап — сёрф-комьюнити и электросёрф в России. Прокат, тест-день в Подмосковье, покупка и предзаказ электросёрфов, зимние кампы на Шри-Ланке.">
 <link rel="canonical" href="https://russianlineup.ru/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="google-site-verification" content="jm0NBVkx726iV0Ienl0tde-vKCa-hTenAI0FXeKmfH4" />
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -14,6 +16,7 @@
 <meta property="og:description" content="Электросёрф без волн и без бензина. Тест-дни под Москвой, зимние кампы на Шри-Ланке, своё комьюнити.">
 <meta property="og:url" content="https://russianlineup.ru/">
 <meta property="og:image" content="https://russianlineup.ru/og-cover.jpg">
+<meta property="og:image:alt" content="Русский Лайнап — первая в мире стойка на голове на электросёрфе (first headstand on electric surfboard)">
 <meta name="twitter:card" content="summary_large_image">
 
 <!-- ⚙️ КОНФИГ: заменить значения на реальные (см. CONTENT_TODO.md) -->
@@ -70,7 +73,8 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     padding:5px 12px;border-radius:999px;margin-bottom:14px;font-weight:600}
   nav{position:sticky;top:0;z-index:50;background:rgba(11,31,42,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:20px;letter-spacing:.3px}
+  .logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.3px}
+  .logo img{width:38px;height:38px;border-radius:50%;display:block}
   .logo span{color:var(--accent)}
   .navlinks{display:flex;gap:24px;font-size:15px;color:var(--muted)}
   .navlinks a:hover{color:var(--txt)}
@@ -81,9 +85,16 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
   .hero p{color:var(--muted);font-size:clamp(16px,2.4vw,20px);max-width:620px;margin:22px auto 30px}
   .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
   .video{margin:46px auto 0;max-width:760px;aspect-ratio:16/9;border-radius:var(--radius);
-    border:1px dashed var(--line);background:var(--card);display:flex;align-items:center;justify-content:center;
-    color:var(--muted);text-align:center;padding:20px;overflow:hidden}
-  .video iframe{width:100%;height:100%;border:0;border-radius:var(--radius)}
+    border:1px solid var(--line);background:var(--card);overflow:hidden}
+  .video iframe,.video video{width:100%;height:100%;border:0;border-radius:var(--radius);object-fit:cover;display:block}
+  .video-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:18px auto 0}
+  .vbtn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:11px 20px;
+    border-radius:999px;border:1px solid var(--line);transition:.2s}
+  .vbtn:hover{border-color:var(--accent)}
+  .vbtn.yt{background:#ff0000;color:#fff;border-color:#ff0000}
+  .vbtn.yt:hover{filter:brightness(1.1)}
+  .vbtn.vk{background:#0077ff;color:#fff;border-color:#0077ff}
+  .vbtn.vk:hover{filter:brightness(1.1)}
   section{padding:60px 0;border-top:1px solid var(--line)}
   h2{font-size:clamp(26px,4vw,38px);font-weight:800;margin-bottom:10px}
   .sub{color:var(--muted);max-width:640px;margin-bottom:34px}
@@ -114,7 +125,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 <body>
 
 <nav><div class="wrap">
-  <div class="logo">Русский <span>Лайнап</span></div>
+  <div class="logo"><img src="/logo-emblem.png" alt="Русский Лайнап — первая в мире стойка на голове на электросёрфе (first headstand on electric surfboard)" width="38" height="38">Русский <span>Лайнап</span></div>
   <div class="navlinks">
     <a href="#esurf">Электросёрф</a>
     <a href="#testday">Тест-день</a>
@@ -133,11 +144,23 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     <a href="#" class="btn js-bot" data-src="hero_testday">Записаться на тест-день</a>
     <a href="#esurf" class="btn ghost">Выбрать доску</a>
   </div>
-  <!-- Вставь YouTube embed: раскомментируй iframe и подставь ВИДЕО_ID -->
+  <!-- Hero-видео: самохостинг MP4-луп (работает везде, в т.ч. в РФ без VPN).
+       Готово к видео — положи файл hero.mp4 в корень репозитория, луп заведётся сам.
+       Пока файла нет, показывается постер-лого. -->
   <div class="video">
-    <!-- <iframe src="https://www.youtube.com/embed/ВИДЕО_ID" allowfullscreen></iframe> -->
-    [ Сюда встроить вау-видео с YouTube ]
+    <video poster="/og-cover.jpg" autoplay muted loop playsinline preload="metadata"
+           aria-label="Русский Лайнап — первая в мире стойка на голове на электросёрфе (first headstand on electric surfboard)">
+      <source src="/hero.mp4" type="video/mp4">
+    </video>
   </div>
+  <!-- Полная версия ролика — отдельными кнопками (трафик на каналы, ничего не ломается у РФ).
+       Раскомментировать и подставить реальные ссылки на канал YouTube и видео/клип VK:
+  <div class="video-cta">
+    <a class="vbtn yt" href="ССЫЛКА_YOUTUBE" target="_blank" rel="noopener">▶ Смотреть на YouTube</a>
+    <a class="vbtn vk" href="ССЫЛКА_VK" target="_blank" rel="noopener">Смотреть в VK Video</a>
+  </div>
+  -->
+
 </div></header>
 
 <section id="esurf"><div class="wrap">
@@ -253,7 +276,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 </div></section>
 
 <footer><div class="wrap">
-  <div class="logo" style="margin-bottom:10px">Русский <span>Лайнап</span></div>
+  <div class="logo" style="margin-bottom:10px;justify-content:center"><img src="/logo-emblem.png" alt="Русский Лайнап — первая в мире стойка на голове на электросёрфе (first headstand on electric surfboard)" width="38" height="38">Русский <span>Лайнап</span></div>
   <p>Электросёрф · тест-дни · кампы · комьюнити</p>
   <p style="margin-top:14px">
     <a href="#" class="btn js-bot" data-src="footer" style="padding:10px 22px;font-size:14px">Написать в бота</a>
