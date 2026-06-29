@@ -278,6 +278,13 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     }catch(e){}
     setTimeout(function(){ finish(""); }, 700); // фолбэк, если Метрика не ответила
   }
+  var BOT_API = "https://ruslineup-bot-fedrbodr.amvera.io/api/token";
+  function ga4ClientId(cb){
+    try{
+      if(window.gtag && CFG.ga4Id){ gtag('get', CFG.ga4Id, 'client_id', function(id){ cb(id||""); }); return; }
+    }catch(_){}
+    cb("");
+  }
   document.querySelectorAll(".js-bot").forEach(function(el){
     el.addEventListener("click", function(e){
       e.preventDefault();
@@ -285,7 +292,21 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
       var src = params.get("utm_source") || this.dataset.src || "site";
       try{ if(window.gtag) gtag("event","open_bot",{source:src}); }catch(_){}
       try{ if(window.ym && CFG.ymCounterId) ym(CFG.ymCounterId,"reachGoal","open_bot"); }catch(_){}
-      withClientId(function(cid){ window.location.href = botLink(src, cid); });
+      withClientId(function(ymCid){
+        ga4ClientId(function(gaCid){
+          var payload = { ga4_cid: gaCid, ym_cid: ymCid, utm_source: src,
+            utm_medium: params.get("utm_medium")||"", utm_campaign: params.get("utm_campaign")||"" };
+          var done = false;
+          function go(url){ if(!done){ done = true; window.location.href = url; } }
+          // Фолбэк через 1.2с: если /api/token не ответил — открываем legacy-ссылку src__ymCid.
+          setTimeout(function(){ go(botLink(src, ymCid)); }, 1200);
+          fetch(BOT_API, {method:"POST", headers:{"Content-Type":"application/json"},
+                          body: JSON.stringify(payload)})
+            .then(function(r){ return r.json(); })
+            .then(function(d){ if(d && d.token){ go("https://t.me/"+CFG.botUsername+"?start=tok_"+d.token); } })
+            .catch(function(){ /* фолбэк сработает по таймауту */ });
+        });
+      });
     });
   });
 })();
