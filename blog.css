@@ -1,0 +1,58 @@
+/* Общий стиль статей блога «Русский Лайнап». Палитра — как на лендинге. */
+:root{
+  --sky:#7EC8E3; --brand:#0039A6; --cta:#D52B1E; --cta2:#b3200f; --green:#1F7A3D;
+  --bg:#eaf6fb; --bg2:#d3ecf8; --surface:#ffffff; --card:#ffffff;
+  --line:#cfe6f2; --txt:#0d2b45; --muted:#5c7d92; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:linear-gradient(180deg,var(--bg),var(--bg2));background-attachment:fixed;
+  color:var(--txt);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+nav .bar{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;align-items:center;
+  justify-content:space-between;height:66px}
+.logo{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:20px;color:var(--txt)}
+.logo img{width:42px;height:42px;border-radius:50%;box-shadow:0 2px 6px rgba(0,57,166,.18)}
+.logo span{color:var(--brand)}
+.navback{font-size:15px;color:var(--muted);font-weight:600}
+.navback:hover{color:var(--brand);text-decoration:none}
+
+.article{padding:44px 0 20px}
+.crumbs{font-size:14px;color:var(--muted);margin-bottom:18px}
+.crumbs a{color:var(--muted)}
+.article h1{font-size:clamp(28px,5vw,44px);line-height:1.12;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+.meta{color:var(--muted);font-size:14px;margin-bottom:8px}
+.lead{font-size:clamp(17px,2.4vw,20px);color:#274b66;margin:18px 0 6px}
+.article h2{font-size:clamp(22px,3.4vw,30px);font-weight:800;margin:38px 0 12px;letter-spacing:-.3px}
+.article h3{font-size:20px;font-weight:800;margin:26px 0 8px}
+.article p{margin:14px 0}
+.article ul,.article ol{margin:14px 0 14px 22px}
+.article li{margin:8px 0}
+.article strong{color:var(--txt)}
+.callout{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);
+  border-radius:12px;padding:16px 20px;margin:22px 0;box-shadow:0 6px 18px rgba(13,43,69,.05)}
+.callout.warn{border-left-color:var(--cta)}
+.tag{display:inline-block;font-size:13px;color:var(--brand);background:rgba(0,57,166,.09);
+  padding:5px 12px;border-radius:999px;font-weight:700;margin-bottom:14px}
+.btn{display:inline-block;background:linear-gradient(90deg,var(--cta),var(--cta2));color:#fff;
+  font-weight:700;padding:13px 24px;border-radius:999px;font-size:16px;
+  box-shadow:0 6px 18px rgba(213,43,30,.28);transition:.2s}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.cta-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;margin:34px 0;text-align:center;box-shadow:0 10px 30px rgba(13,43,69,.07)}
+.cta-box h3{margin:0 0 6px}
+.cta-box p{color:var(--muted);margin:0 0 16px}
+
+.related{border-top:1px solid var(--line);margin-top:36px;padding-top:28px}
+.related h2{font-size:22px;margin:0 0 16px}
+.related a{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;font-weight:600;color:var(--txt);
+  box-shadow:0 6px 18px rgba(13,43,69,.04);transition:.2s}
+.related a:hover{border-color:var(--brand);text-decoration:none;transform:translateY(-1px)}
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center;margin-top:20px}
