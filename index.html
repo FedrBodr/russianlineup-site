@@ -137,6 +137,13 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     border-radius:14px;padding:15px 18px;font-weight:600;font-size:15.5px;
     box-shadow:0 6px 18px rgba(13,43,69,.04)}
   .incl .em{font-size:26px;line-height:1;flex:none}
+  /* Пакет корпоратива: карточки «включено» / «доп-опции» */
+  .plist{list-style:none;margin:14px 0 0}
+  .plist li{display:flex;align-items:center;gap:12px;padding:9px 0;font-weight:600;font-size:15.5px;
+    border-bottom:1px solid var(--line)}
+  .plist li:last-child{border-bottom:0}
+  .plist .em{font-size:24px;line-height:1;flex:none}
+  .pack-note{margin-top:12px;font-size:14px;color:var(--muted)}
   /* Почему электросёрф — иконки */
   .feat{text-align:center;padding:28px 20px}
   .feat img{width:86px;height:86px;object-fit:contain;margin:0 auto 14px;display:block;
@@ -360,21 +367,35 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
   <div class="sec-head">
     <img class="sticker right" src="/assets/stk-thumb.png" alt="" aria-hidden="true" loading="lazy">
     <h2>Корпоратив на воде</h2>
-    <p class="sub">Выездной день для команды под Москвой: электросёрф, сапы, шашлык и съёмка — всё оборудование и организацию берём на себя. Отличный тимбилдинг или день рождения.</p>
+    <p class="sub">Выездной день для команды под Москвой: электросёрф, сапы и съёмка — оборудование и организацию берём на себя. Отличный тимбилдинг или день рождения.</p>
   </div>
-  <div class="grid g3">
-    <div class="incl"><span class="em">🏄</span>Катка на электросёрфе</div>
-    <div class="incl"><span class="em">🛶</span>Сапы (SUP) для всех</div>
-    <div class="incl"><span class="em">🎬</span>Съёмка дня на камеру</div>
-    <div class="incl"><span class="em">🍖</span>Шашлык</div>
-    <div class="incl"><span class="em">⛺</span>Беседка и зона отдыха</div>
-    <div class="incl"><span class="em">🎽</span>Всё оборудование включено</div>
+  <div class="grid g2">
+    <div class="card">
+      <span class="badge stock">Включено в базу</span>
+      <h3>6 000 ₽ с человека</h3>
+      <ul class="plist">
+        <li><span class="em">🏄</span>Катка на электросёрфе</li>
+        <li><span class="em">🛶</span>Сапы (SUP) для всех</li>
+        <li><span class="em">🎬</span>Съёмка дня на камеру</li>
+        <li><span class="em">⛺</span>Беседка и зона отдыха</li>
+        <li><span class="em">🎽</span>Всё базовое оборудование</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="badge pre">Доп-опции · по желанию</span>
+      <h3>Доплата по запросу</h3>
+      <ul class="plist">
+        <li><span class="em">🍖</span>Шашлык / кейтеринг</li>
+        <li><span class="em">🩱</span>Гидрокостюм</li>
+      </ul>
+      <p class="pack-note">Скажи, что нужно — включим в расчёт под вашу группу.</p>
+    </div>
   </div>
   <div class="cta-box" style="margin-top:28px">
-    <span class="badge stock">от 5 человек</span>
+    <span class="badge stock">от 6 человек</span>
     <h3>Соберём день под вашу команду</h3>
     <p class="sub" style="margin:10px 0 0">Скажи дату и сколько вас — предложим программу и посчитаем под группу.</p>
-    <p class="promo">Стоимость — <b>5 000 ₽ с человека</b>, всё оборудование включено. Детали и бронь — в Telegram-боте.</p>
+    <p class="promo">Лучший формат — <b>8–10 человек</b>: та же беседка, веселее и выгоднее на человека. Детали и бронь — в Telegram-боте.</p>
     <a href="#" class="btn js-bot" data-src="corporate" style="margin-top:18px;width:100%;text-align:center">Организовать корпоратив</a>
   </div>
 </div></section>
