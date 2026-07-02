@@ -129,6 +129,11 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
   .badge{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:10px}
   .badge.stock{background:rgba(31,122,61,.12);color:var(--green)}
   .badge.pre{background:rgba(213,43,30,.1);color:var(--cta)}
+  /* Что входит — компактный список */
+  .incl{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:15px 18px;font-weight:600;font-size:15.5px;
+    box-shadow:0 6px 18px rgba(13,43,69,.04)}
+  .incl .em{font-size:26px;line-height:1;flex:none}
   /* Почему электросёрф — иконки */
   .feat{text-align:center;padding:28px 20px}
   .feat img{width:86px;height:86px;object-fit:contain;margin:0 auto 14px;display:block;
@@ -174,7 +179,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     <a href="#esurf">Электросёрф</a>
     <a href="#testday">Тест-день</a>
     <a href="#rent">Прокат</a>
-    <a href="#camp">Кэмпы</a>
+    <a href="#corporate">Корпоратив</a>
     <a href="#community">Комьюнити</a>
   </div>
   <a href="#" class="btn js-bot" data-src="nav" style="padding:10px 20px;font-size:14px">Записаться</a>
@@ -182,9 +187,9 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 
 <header class="hero"><div class="wrap">
   <img class="hero-badge" src="/logo-mascot.png" alt="Русский Лайнап — маскот: стойка на голове на электросёрфе (first headstand on electric surfboard)" width="150" height="150">
-  <div class="tag">Сёрф-комьюнити · электросёрф · кэмпы</div>
+  <div class="tag">Сёрф-комьюнити · электросёрф · корпоративы</div>
   <h1>Встал на доску —<br><span>и полетел по любой воде</span></h1>
-  <p>Электросёрф — это сёрфинг без волн и без бензина. Мы катаем, снимаем POV и собираем своих. Попробуй на тест-дне под Москвой или поехали зимой на Шри-Ланку.</p>
+  <p>Электросёрф — это сёрфинг без волн и без бензина. Мы катаем, снимаем POV и собираем своих. Попробуй на тест-дне под Москвой или собери команду на корпоратив на воде.</p>
   <div class="cta-row">
     <a href="#" class="btn js-bot" data-src="hero_testday">Записаться на тест-день</a>
     <a href="#esurf" class="btn ghost">Выбрать доску</a>
@@ -348,6 +353,30 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
   </div>
 </div></section>
 
+<section id="corporate"><div class="wrap">
+  <div class="sec-head">
+    <img class="sticker right" src="/assets/stk-thumb.png" alt="" aria-hidden="true" loading="lazy">
+    <h2>Корпоратив на воде</h2>
+    <p class="sub">Выездной день для команды под Москвой: электросёрф, сапы, шашлык и съёмка — всё оборудование и организацию берём на себя. Отличный тимбилдинг или день рождения.</p>
+  </div>
+  <div class="grid g3">
+    <div class="incl"><span class="em">🏄</span>Катка на электросёрфе</div>
+    <div class="incl"><span class="em">🛶</span>Сапы (SUP) для всех</div>
+    <div class="incl"><span class="em">🎬</span>Съёмка дня на камеру</div>
+    <div class="incl"><span class="em">🍖</span>Шашлык</div>
+    <div class="incl"><span class="em">⛺</span>Беседка и зона отдыха</div>
+    <div class="incl"><span class="em">🎽</span>Всё оборудование включено</div>
+  </div>
+  <div class="cta-box" style="margin-top:28px">
+    <span class="badge stock">от 5 человек</span>
+    <h3>Соберём день под вашу команду</h3>
+    <p class="sub" style="margin:10px 0 0">Скажи дату и сколько вас — предложим программу и посчитаем под группу.</p>
+    <p class="promo">Стоимость — <b>5 000 ₽ с человека</b>, всё оборудование включено. Детали и бронь — в Telegram-боте.</p>
+    <a href="#" class="btn js-bot" data-src="corporate" style="margin-top:18px;width:100%;text-align:center">Организовать корпоратив</a>
+  </div>
+</div></section>
+
+<!-- Серф-кэмп на Шри-Ланке — временно скрыт (вернуть перед сезоном, декабрь–март).
 <section id="camp"><div class="wrap">
   <h2>Зимние кэмпы · Шри-Ланка 🏝</h2>
   <p class="sub">Декабрь–март — сезон южного берега (Велигама / Мирисса). Сёрф + электросёрф + контент + своя группа.</p>
@@ -360,6 +389,8 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     <a href="#" class="btn ghost js-bot" data-src="camp">Узнать о кэмпе</a>
   </div>
 </div></section>
+-->
+
 
 <section id="community"><div class="wrap">
   <div class="sec-head">
@@ -387,7 +418,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 
 <footer><div class="wrap">
   <div class="logo"><img src="/logo-mascot.png" alt="Русский Лайнап" width="38" height="38">Русский <span>Лайнап</span></div>
-  <p>Электросёрф · тест-дни · кэмпы · комьюнити</p>
+  <p>Электросёрф · тест-дни · корпоративы · комьюнити</p>
   <p style="margin-top:14px">
     <a href="#" class="btn js-bot" data-src="footer" style="padding:10px 22px;font-size:14px">Написать в бота</a>
   </p>
