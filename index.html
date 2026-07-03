@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Русский Лайнап — электросёрф, тест-дни, кэмпы</title>
-<meta name="description" content="Русский Лайнап — сёрф-комьюнити и электросёрф в России. Прокат, тест-день в Подмосковье, покупка и предзаказ электросёрфов, зимние кэмпы на Шри-Ланке.">
+<title>Русский Лайнап — электросёрф, прокат и тест-дни под Москвой</title>
+<meta name="description" content="Электросёрф без волн и бензина: тест-день и прокат под Москвой, покупка и предзаказ, корпоратив на воде. Попробуй, прежде чем покупать.">
 <link rel="canonical" href="https://russianlineup.ru/">
 <meta name="theme-color" content="#7EC8E3">
 <meta name="google-site-verification" content="jm0NBVkx726iV0Ienl0tde-vKCa-hTenAI0FXeKmfH4" />
@@ -14,8 +14,8 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Русский Лайнап — электросёрф, тест-дни, кэмпы">
-<meta property="og:description" content="Электросёрф без волн и без бензина. Тест-дни под Москвой, зимние кэмпы на Шри-Ланке, своё комьюнити.">
+<meta property="og:title" content="Русский Лайнап — электросёрф и тест-дни под Москвой">
+<meta property="og:description" content="Электросёрф без волн и бензина: тест-день, прокат, покупка и корпоратив на воде под Москвой. Своё комьюнити.">
 <meta property="og:url" content="https://russianlineup.ru/">
 <meta property="og:image" content="https://russianlineup.ru/og-cover.jpg">
 <meta property="og:image:alt" content="Русский Лайнап — первая в мире стойка на голове на электросёрфе (first headstand on electric surfboard)">
@@ -27,16 +27,21 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "SportsActivityLocation"],
       "@id": "https://russianlineup.ru/#org",
       "name": "Русский Лайнап",
       "url": "https://russianlineup.ru/",
+      "image": "https://russianlineup.ru/og-cover.jpg",
       "logo": {"@type": "ImageObject", "url": "https://russianlineup.ru/logo-mascot.png"},
+      "areaServed": ["Москва", "Московская область"],
       "sameAs": [
+        "https://t.me/russianlineup",
+        "https://t.me/russian_lineup_msk_mo",
         "https://t.me/surf_arugambay",
         "https://t.me/surflanka_ug",
         "https://t.me/russian_lineup_misovoe",
-        "https://t.me/russian_lineup_msk_mo"
+        "https://instagram.com/fedrbodr",
+        "https://www.linkedin.com/in/dmitry-fedorenko/"
       ]
     },
     {
@@ -125,6 +130,35 @@
       }
     },
     {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое электросёрф?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Электросёрф — это доска с электромотором и водомётом: она едет сама, без волн, ветра и бензина. Скорость регулируешь пультом в руке, а встать на неё получается у большинства уже в первую сессию."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит тест-день?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Тест-день стоит от 12 000 ₽: инструктаж, экипировка, несколько заездов и съёмка твоего катания на GoPro. Точную цену, дату и промокод подскажет наш Telegram-бот."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли опыт, чтобы кататься?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, опыт не нужен. Мягкий старт, устойчивая доска и инструктор рядом — девять из десяти новичков встают в полный рост в первый же день. Права тоже не нужны."
+          }
+        }
+      ]
+    },
+    {
       "@type": "Service",
       "name": "Корпоратив на воде",
       "description": "Выездной день для команды под Москвой: электросёрф, сапы, съёмка, беседка. От 6 человек.",
@@ -145,6 +179,36 @@
   ]
 }
 </script>
+
+<!-- Event тест-дня: РАСКОММЕНТИРОВАТЬ, когда появятся реальные даты (заменить [startDate]/[endDate],
+     формат ISO: 2026-07-19T10:00:00+03:00). Без дат разметка невалидна — потому выключена.
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Тест-день на электросёрфе · Подмосковье",
+  "description": "Небольшая группа, инструктаж, доски, съёмка катания на GoPro. Попробуй электросёрф, прежде чем покупать.",
+  "startDate": "[startDate]",
+  "endDate": "[endDate]",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Точка под Москвой",
+    "address": {"@type": "PostalAddress", "addressRegion": "Московская область", "addressCountry": "RU"}
+  },
+  "image": "https://russianlineup.ru/og-cover.jpg",
+  "organizer": {"@id": "https://russianlineup.ru/#org"},
+  "offers": {
+    "@type": "Offer",
+    "price": "12000",
+    "priceCurrency": "RUB",
+    "availability": "https://schema.org/InStock",
+    "url": "https://russianlineup.ru/#testday"
+  }
+}
+</script>
+-->
 
 <!-- ⚙️ КОНФИГ: заменить значения на реальные (см. CONTENT_TODO.md) -->
 <script>
@@ -310,6 +374,16 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:.2s;box-shadow:0 6px 18px rgba(13,43,69,.04)}
   .comm a:hover{border-color:var(--brand);transform:translateY(-1px)}
   .comm .count{color:var(--brand);font-weight:800}
+  /* FAQ */
+  .faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:4px 20px;margin-bottom:12px;box-shadow:0 6px 18px rgba(13,43,69,.04)}
+  .faq-item summary{cursor:pointer;font-weight:700;font-size:17px;padding:14px 0;
+    list-style:none;position:relative;padding-right:34px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);
+    color:var(--brand);font-size:24px;font-weight:800;line-height:1}
+  .faq-item[open] summary::after{content:"–"}
+  .faq-item p{color:var(--muted);padding:0 0 16px;margin:0}
   /* Стикеры-акценты */
   .sticker{position:absolute;pointer-events:none;filter:drop-shadow(0 8px 16px rgba(13,43,69,.18));z-index:1}
   .sticker.right{right:-6px;top:-10px;width:120px}
@@ -367,32 +441,32 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
   <p class="sub">Скорость мотоцикла, простота самоката и никакой зависимости от волн и ветра.</p>
   <div class="grid g3">
     <div class="card feat">
-      <img src="/assets/feat-speed.png" alt="Скорость" loading="lazy">
+      <img src="/assets/feat-speed.webp" alt="Скорость катания на электросёрфе" loading="lazy" width="360" height="199">
       <h3>Скорость</h3>
       <p>Разгон одним нажатием пульта — динамика, как ни на чём другом на воде.</p>
     </div>
     <div class="card feat">
-      <img src="/assets/feat-battery.png" alt="Электро" loading="lazy">
+      <img src="/assets/feat-battery.webp" alt="Сменная батарея электросёрфа" loading="lazy" width="342" height="288">
       <h3>Электро</h3>
       <p>Никакого бензина и запаха. Сменная батарея — зарядил и поехал.</p>
     </div>
     <div class="card feat">
-      <img src="/assets/feat-nowaves.png" alt="Без волн" loading="lazy">
+      <img src="/assets/feat-nowaves.webp" alt="Электросёрфу не нужны волны" loading="lazy" width="360" height="262">
       <h3>Без волн</h3>
       <p>Не нужен прибой и ветер. Катаешься даже по ровной глади озера.</p>
     </div>
     <div class="card feat">
-      <img src="/assets/feat-safe.png" alt="Безопасно" loading="lazy">
+      <img src="/assets/feat-safe.webp" alt="Безопасное катание на электросёрфе" loading="lazy" width="267" height="286">
       <h3>Безопасно</h3>
       <p>Мягкий старт, устойчивый корпус и понятное управление с первого раза.</p>
     </div>
     <div class="card feat">
-      <img src="/assets/feat-easy.png" alt="Легко встать" loading="lazy">
+      <img src="/assets/feat-easy.webp" alt="Легко встать на доску с первого раза" loading="lazy" width="360" height="312">
       <h3>Легко встать</h3>
       <p>Большинство встаёт на доску уже в первую сессию — это реально просто.</p>
     </div>
     <div class="card feat">
-      <img src="/assets/feat-jet.png" alt="Реактивная тяга" loading="lazy">
+      <img src="/assets/feat-jet.webp" alt="Водомёт — реактивная тяга электросёрфа" loading="lazy" width="360" height="160">
       <h3>Водомёт</h3>
       <p>Реактивная тяга вместо винта: ничего острого, тихо и мощно.</p>
     </div>
@@ -404,15 +478,15 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
   <p class="sub">Три простых шага — и ты уже мчишь по воде на реактивной тяге.</p>
   <div class="grid g3">
     <div class="card how" style="padding:0">
-      <div class="illo"><img src="/assets/step-1.png" alt="Вставь батарею" loading="lazy"></div>
+      <div class="illo"><img src="/assets/step-1.webp" alt="Шаг 1: вставь батарею в электросёрф" loading="lazy" width="475" height="365"></div>
       <div class="body"><h3>1. Вставь батарею</h3><p>Заряженный аккумулятор ставится за секунды. Запас хода — 50–80 минут.</p></div>
     </div>
     <div class="card how" style="padding:0">
-      <div class="illo"><img src="/assets/step-2.png" alt="Вставай и рули" loading="lazy"></div>
+      <div class="illo"><img src="/assets/step-2.webp" alt="Шаг 2: встань на доску и управляй пультом" loading="lazy" width="466" height="383"></div>
       <div class="body"><h3>2. Вставай и рули</h3><p>Держишь баланс и управляешь тягой беспроводным пультом в руке.</p></div>
     </div>
     <div class="card how" style="padding:0">
-      <div class="illo"><img src="/assets/step-3.png" alt="Мчись на тяге" loading="lazy"></div>
+      <div class="illo"><img src="/assets/step-3.webp" alt="Шаг 3: катание на электросёрфе на реактивной тяге" loading="lazy" width="457" height="179"></div>
       <div class="body"><h3>3. Мчись на тяге</h3><p>Водомёт разгоняет доску — по волне, по озеру, по любой воде.</p></div>
     </div>
   </div>
@@ -461,14 +535,15 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
       <div class="price">от 160 000 ₽</div>
     </div>
   </div>
-  <div class="cta-row" style="justify-content:flex-start;margin-top:26px">
+  <div class="cta-row" style="justify-content:flex-start;margin-top:26px;align-items:center;gap:20px">
     <a href="#" class="btn js-bot" data-src="boards">Подобрать доску в боте</a>
+    <a href="/catalog.html" style="color:var(--brand);font-weight:700;font-size:15px">Каталог с ценами →</a>
   </div>
 </div></section>
 
 <section id="testday"><div class="wrap">
   <div class="sec-head">
-    <img class="sticker right" src="/assets/stk-cool.png" alt="" aria-hidden="true" loading="lazy">
+    <img class="sticker right" src="/assets/stk-cool.webp" alt="" aria-hidden="true" loading="lazy" width="320" height="279">
     <h2>Тест-день в Подмосковье</h2>
     <p class="sub">Небольшая группа, инструктаж, доски, съёмка твоего катания на GoPro. Попробуй, прежде чем покупать.</p>
   </div>
@@ -500,9 +575,9 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 
 <section id="rent"><div class="wrap">
   <div class="sec-head">
-    <img class="sticker right" src="/assets/stk-chill.png" alt="" aria-hidden="true" loading="lazy">
+    <img class="sticker right" src="/assets/stk-chill.webp" alt="" aria-hidden="true" loading="lazy" width="320" height="230">
     <h2>Прокат</h2>
-    <p class="sub">Не готов покупать — просто покатайся. Берёшь доску на час и пробуешь электросёрф вживую, на той же точке под Москвой.</p>
+    <p class="sub">Не готов покупать — просто покатайся. Берёшь доску на час и пробуешь электросёрф вживую, на той же точке под Москвой. Все форматы катания в регионе — на странице <a href="/moskva.html" style="color:var(--brand);font-weight:600">«Электросёрф в Москве»</a>.</p>
   </div>
   <div class="cta-box">
     <span class="badge stock">В наличии</span>
@@ -515,7 +590,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 
 <section id="corporate"><div class="wrap">
   <div class="sec-head">
-    <img class="sticker right" src="/assets/stk-thumb.png" alt="" aria-hidden="true" loading="lazy">
+    <img class="sticker right" src="/assets/stk-thumb.webp" alt="" aria-hidden="true" loading="lazy" width="279" height="320">
     <h2>Корпоратив на воде</h2>
     <p class="sub">Выездной день для команды под Москвой: электросёрф, сапы и съёмка — оборудование и организацию берём на себя. Отличный тимбилдинг или день рождения.</p>
   </div>
@@ -545,7 +620,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     <span class="badge stock">от 6 человек</span>
     <h3>Соберём день под вашу команду</h3>
     <p class="sub" style="margin:10px 0 0">Скажи дату и сколько вас — предложим программу и посчитаем под группу.</p>
-    <p class="promo">Лучший формат — <b>8–10 человек</b>: та же беседка, веселее и выгоднее на человека. Детали и бронь — в Telegram-боте.</p>
+    <p class="promo">Лучший формат — <b>8–10 человек</b>: та же беседка, веселее и выгоднее на человека. Детали и бронь — в Telegram-боте. <a href="/korporativ.html" style="color:var(--brand);font-weight:600">Подробнее о формате →</a></p>
     <a href="#" class="btn js-bot" data-src="corporate" style="margin-top:18px;width:100%;text-align:center">Организовать корпоратив</a>
     <div class="alt-lead">
       <button type="button" class="alt-toggle">Удобнее по телефону? Оставь контакт →</button>
@@ -579,7 +654,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 
 <section id="community"><div class="wrap">
   <div class="sec-head">
-    <img class="sticker right" src="/assets/stk-hi.png" alt="" aria-hidden="true" loading="lazy">
+    <img class="sticker right" src="/assets/stk-hi.webp" alt="" aria-hidden="true" loading="lazy" width="289" height="320">
     <h2>Наше комьюнити</h2>
     <p class="sub">Сёрферы уже с нами — присоединяйся к ближайшему чату.</p>
   </div>
@@ -590,6 +665,23 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     <a href="https://t.me/russian_lineup_misovoe" target="_blank" rel="noopener"><span>🏖 Русский Лайнап · Мысовое</span><span class="count">30+</span></a>
     <a href="https://t.me/russian_lineup_msk_mo" target="_blank" rel="noopener"><span>🏙 Русский Лайнап · Мск + МО</span><span class="count">16</span></a>
   </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2>Частые вопросы</h2>
+  <p class="sub">Коротко о главном — остальное подскажет бот.</p>
+  <details class="faq-item">
+    <summary>Что такое электросёрф?</summary>
+    <p>Электросёрф — это доска с электромотором и водомётом: она едет сама, без волн, ветра и бензина. Скорость регулируешь пультом в руке, а встать на неё получается у большинства уже в первую сессию.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Сколько стоит тест-день?</summary>
+    <p>Тест-день стоит от 12 000 ₽: инструктаж, экипировка, несколько заездов и съёмка твоего катания на GoPro. Точную цену, дату и промокод подскажет наш Telegram-бот.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Нужен ли опыт, чтобы кататься?</summary>
+    <p>Нет, опыт не нужен. Мягкий старт, устойчивая доска и инструктор рядом — девять из десяти новичков встают в полный рост в первый же день. Права тоже не нужны.</p>
+  </details>
 </div></section>
 
 <section id="blog"><div class="wrap">
@@ -682,7 +774,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
       io.unobserve(en.target);
     });
   }, {threshold:0, rootMargin:"-45% 0px -45% 0px"});
-  ["why","how","esurf","testday","rent","corporate","community","blog"].forEach(function(id){
+  ["why","how","esurf","testday","rent","corporate","community","faq","blog"].forEach(function(id){
     var el = document.getElementById(id);
     if(el) io.observe(el);
   });
