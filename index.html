@@ -27,16 +27,21 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "SportsActivityLocation"],
       "@id": "https://russianlineup.ru/#org",
       "name": "Русский Лайнап",
       "url": "https://russianlineup.ru/",
+      "image": "https://russianlineup.ru/og-cover.jpg",
       "logo": {"@type": "ImageObject", "url": "https://russianlineup.ru/logo-mascot.png"},
+      "areaServed": ["Москва", "Московская область"],
       "sameAs": [
+        "https://t.me/russianlineup",
+        "https://t.me/russian_lineup_msk_mo",
         "https://t.me/surf_arugambay",
         "https://t.me/surflanka_ug",
         "https://t.me/russian_lineup_misovoe",
-        "https://t.me/russian_lineup_msk_mo"
+        "https://instagram.com/fedrbodr",
+        "https://www.linkedin.com/in/dmitry-fedorenko/"
       ]
     },
     {
@@ -125,6 +130,35 @@
       }
     },
     {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое электросёрф?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Электросёрф — это доска с электромотором и водомётом: она едет сама, без волн, ветра и бензина. Скорость регулируешь пультом в руке, а встать на неё получается у большинства уже в первую сессию."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит тест-день?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Тест-день стоит от 12 000 ₽: инструктаж, экипировка, несколько заездов и съёмка твоего катания на GoPro. Точную цену, дату и промокод подскажет наш Telegram-бот."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли опыт, чтобы кататься?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, опыт не нужен. Мягкий старт, устойчивая доска и инструктор рядом — девять из десяти новичков встают в полный рост в первый же день. Права тоже не нужны."
+          }
+        }
+      ]
+    },
+    {
       "@type": "Service",
       "name": "Корпоратив на воде",
       "description": "Выездной день для команды под Москвой: электросёрф, сапы, съёмка, беседка. От 6 человек.",
@@ -145,6 +179,36 @@
   ]
 }
 </script>
+
+<!-- Event тест-дня: РАСКОММЕНТИРОВАТЬ, когда появятся реальные даты (заменить [startDate]/[endDate],
+     формат ISO: 2026-07-19T10:00:00+03:00). Без дат разметка невалидна — потому выключена.
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Тест-день на электросёрфе · Подмосковье",
+  "description": "Небольшая группа, инструктаж, доски, съёмка катания на GoPro. Попробуй электросёрф, прежде чем покупать.",
+  "startDate": "[startDate]",
+  "endDate": "[endDate]",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Точка под Москвой",
+    "address": {"@type": "PostalAddress", "addressRegion": "Московская область", "addressCountry": "RU"}
+  },
+  "image": "https://russianlineup.ru/og-cover.jpg",
+  "organizer": {"@id": "https://russianlineup.ru/#org"},
+  "offers": {
+    "@type": "Offer",
+    "price": "12000",
+    "priceCurrency": "RUB",
+    "availability": "https://schema.org/InStock",
+    "url": "https://russianlineup.ru/#testday"
+  }
+}
+</script>
+-->
 
 <!-- ⚙️ КОНФИГ: заменить значения на реальные (см. CONTENT_TODO.md) -->
 <script>
@@ -310,6 +374,16 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:.2s;box-shadow:0 6px 18px rgba(13,43,69,.04)}
   .comm a:hover{border-color:var(--brand);transform:translateY(-1px)}
   .comm .count{color:var(--brand);font-weight:800}
+  /* FAQ */
+  .faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:4px 20px;margin-bottom:12px;box-shadow:0 6px 18px rgba(13,43,69,.04)}
+  .faq-item summary{cursor:pointer;font-weight:700;font-size:17px;padding:14px 0;
+    list-style:none;position:relative;padding-right:34px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);
+    color:var(--brand);font-size:24px;font-weight:800;line-height:1}
+  .faq-item[open] summary::after{content:"–"}
+  .faq-item p{color:var(--muted);padding:0 0 16px;margin:0}
   /* Стикеры-акценты */
   .sticker{position:absolute;pointer-events:none;filter:drop-shadow(0 8px 16px rgba(13,43,69,.18));z-index:1}
   .sticker.right{right:-6px;top:-10px;width:120px}
@@ -592,6 +666,23 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
   </div>
 </div></section>
 
+<section id="faq"><div class="wrap">
+  <h2>Частые вопросы</h2>
+  <p class="sub">Коротко о главном — остальное подскажет бот.</p>
+  <details class="faq-item">
+    <summary>Что такое электросёрф?</summary>
+    <p>Электросёрф — это доска с электромотором и водомётом: она едет сама, без волн, ветра и бензина. Скорость регулируешь пультом в руке, а встать на неё получается у большинства уже в первую сессию.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Сколько стоит тест-день?</summary>
+    <p>Тест-день стоит от 12 000 ₽: инструктаж, экипировка, несколько заездов и съёмка твоего катания на GoPro. Точную цену, дату и промокод подскажет наш Telegram-бот.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Нужен ли опыт, чтобы кататься?</summary>
+    <p>Нет, опыт не нужен. Мягкий старт, устойчивая доска и инструктор рядом — девять из десяти новичков встают в полный рост в первый же день. Права тоже не нужны.</p>
+  </details>
+</div></section>
+
 <section id="blog"><div class="wrap">
   <h2>Блог</h2>
   <p class="sub">Гайды и истории про электросёрф — заодно растим SEO.</p>
@@ -682,7 +773,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
       io.unobserve(en.target);
     });
   }, {threshold:0, rootMargin:"-45% 0px -45% 0px"});
-  ["why","how","esurf","testday","rent","corporate","community","blog"].forEach(function(id){
+  ["why","how","esurf","testday","rent","corporate","community","faq","blog"].forEach(function(id){
     var el = document.getElementById(id);
     if(el) io.observe(el);
   });
