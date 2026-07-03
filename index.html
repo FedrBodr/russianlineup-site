@@ -292,6 +292,20 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     box-shadow:0 10px 30px rgba(13,43,69,.07)}
   .promo{margin-top:14px;font-size:14px;color:var(--muted)}
   .promo b{color:var(--cta)}
+  /* Fallback-заявка без Telegram (FED-262) */
+  .alt-lead{margin-top:14px;text-align:center}
+  .alt-toggle{background:none;border:none;color:var(--brand);font-weight:600;font-size:14px;
+    cursor:pointer;padding:0;text-decoration:underline;font-family:inherit}
+  .alt-toggle:hover{color:var(--cta)}
+  .lead-form{display:none;margin-top:14px;gap:10px;text-align:left}
+  .lead-form.open{display:grid}
+  .lead-form input,.lead-form textarea{width:100%;padding:11px 14px;border:1px solid var(--line);
+    border-radius:10px;font:inherit;font-size:15px;color:var(--txt);background:#fff}
+  .lead-form input:focus,.lead-form textarea:focus{outline:none;border-color:var(--brand)}
+  .lead-form .hp{position:absolute;left:-9999px;height:0;width:0;padding:0;border:0;overflow:hidden}
+  .form-ok{color:var(--green);font-weight:700;margin-top:12px}
+  .form-note{font-size:14px;color:var(--cta)}
+  .form-note a{color:var(--brand);font-weight:700;text-decoration:underline}
   .comm a{display:flex;align-items:center;justify-content:space-between;background:var(--card);
     border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:.2s;box-shadow:0 6px 18px rgba(13,43,69,.04)}
   .comm a:hover{border-color:var(--brand);transform:translateY(-1px)}
@@ -470,6 +484,17 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     <p class="sub" style="margin:10px 0 0">Бот задаст пару вопросов и передаст заявку нам — ответим лично.</p>
     <p class="promo">Стоимость — <b>от 12 000 ₽</b>. Точную цену, дату и промокод узнавай в Telegram-боте.</p>
     <a href="#" class="btn js-bot" data-src="testday" style="margin-top:18px;width:100%;text-align:center">Записаться через бота</a>
+    <div class="alt-lead">
+      <button type="button" class="alt-toggle">Не пользуешься Telegram? Оставь телефон →</button>
+      <form class="lead-form" data-type="testday">
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="text" name="name" placeholder="Имя" maxlength="100" autocomplete="name">
+        <input type="tel" name="contact" placeholder="Телефон" required maxlength="200" autocomplete="tel">
+        <textarea name="comment" placeholder="Когда хочешь приехать? (необязательно)" maxlength="500" rows="2"></textarea>
+        <button type="submit" class="btn" style="width:100%">Отправить — перезвоним</button>
+        <p class="form-note" hidden></p>
+      </form>
+    </div>
   </div>
 </div></section>
 
@@ -522,6 +547,17 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
     <p class="sub" style="margin:10px 0 0">Скажи дату и сколько вас — предложим программу и посчитаем под группу.</p>
     <p class="promo">Лучший формат — <b>8–10 человек</b>: та же беседка, веселее и выгоднее на человека. Детали и бронь — в Telegram-боте.</p>
     <a href="#" class="btn js-bot" data-src="corporate" style="margin-top:18px;width:100%;text-align:center">Организовать корпоратив</a>
+    <div class="alt-lead">
+      <button type="button" class="alt-toggle">Удобнее по телефону? Оставь контакт →</button>
+      <form class="lead-form" data-type="corporate">
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="text" name="name" placeholder="Имя" maxlength="100" autocomplete="name">
+        <input type="tel" name="contact" placeholder="Телефон" required maxlength="200" autocomplete="tel">
+        <textarea name="comment" placeholder="Сколько вас и когда хотите? (необязательно)" maxlength="500" rows="2"></textarea>
+        <button type="submit" class="btn" style="width:100%">Отправить — перезвоним</button>
+        <p class="form-note" hidden></p>
+      </form>
+    </div>
   </div>
 </div></section>
 
@@ -647,6 +683,64 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
   ["why","how","esurf","testday","rent","corporate","community","blog"].forEach(function(id){
     var el = document.getElementById(id);
     if(el) io.observe(el);
+  });
+})();
+</script>
+
+<!-- Fallback-заявка без Telegram (FED-262): форма → POST /api/lead бот-бэкенда.
+     Заявка падает в те же leads + админ-чат; аналитика склеивается по client_id. -->
+<script>
+(function(){
+  var CFG = window.SITE_CONFIG || {};
+  var API = "https://ruslineup-bot-fedrbodr.amvera.io/api/lead";
+  function ymCid(cb){
+    var done = false, fin = function(id){ if(!done){done = true; cb(id || "");} };
+    try{ if(window.ym && CFG.ymCounterId){ ym(CFG.ymCounterId, "getClientID", fin); } }catch(_){}
+    setTimeout(function(){ fin(""); }, 700);
+  }
+  function gaCid(cb){
+    try{
+      if(window.gtag && CFG.ga4Id){ gtag("get", CFG.ga4Id, "client_id", function(id){ cb(id||""); }); return; }
+    }catch(_){}
+    cb("");
+  }
+  document.querySelectorAll(".alt-toggle").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var form = btn.parentElement.querySelector(".lead-form");
+      if(form){ form.classList.toggle("open"); }
+    });
+  });
+  document.querySelectorAll(".lead-form").forEach(function(f){
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var contact = f.contact.value.trim();
+      if(!contact){ f.contact.focus(); return; }
+      var btn = f.querySelector("button[type=submit]");
+      btn.disabled = true; btn.textContent = "Отправляем…";
+      var type = f.dataset.type || "site_form";
+      try{ if(window.gtag) gtag("event","lead_submit",{type:type, channel:"site_form"}); }catch(_){}
+      try{ if(window.ym && CFG.ymCounterId) ym(CFG.ymCounterId,"reachGoal","lead_form"); }catch(_){}
+      var params = new URLSearchParams(window.location.search);
+      ymCid(function(yc){ gaCid(function(gc){
+        fetch(API, {method:"POST", headers:{"Content-Type":"application/json"},
+          body: JSON.stringify({
+            name: f.name.value.trim(), contact: contact, comment: f.comment.value.trim(),
+            type: type, website: f.website.value,
+            utm_source: params.get("utm_source") || "", utm_medium: params.get("utm_medium") || "",
+            utm_campaign: params.get("utm_campaign") || "", ga4_cid: gc, ym_cid: yc
+          })})
+          .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+          .then(function(){
+            f.innerHTML = "<p class='form-ok'>Спасибо! Заявка у нас — перезвоним в ближайшее время 🤙</p>";
+          })
+          .catch(function(){
+            btn.disabled = false; btn.textContent = "Отправить — перезвоним";
+            var n = f.querySelector(".form-note");
+            n.hidden = false;
+            n.innerHTML = "Не получилось отправить — напиши нам в <a href='https://t.me/" + CFG.botUsername + "' target='_blank' rel='noopener'>Telegram</a>.";
+          });
+      });});
+    });
   });
 })();
 </script>
