@@ -500,5 +500,31 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 })();
 </script>
 
+<!-- Просмотры секций: юзер доскроллил до оффера → view_section в GA4 + параметр визита в Метрику.
+     Даёт пару «посмотрели → кликнули» по каждому офферу (гипотезы: что цепляет, а что не находят). -->
+<script>
+(function(){
+  var CFG = window.SITE_CONFIG || {};
+  if(!("IntersectionObserver" in window)) return;
+  var seen = {};
+  // Срабатывает, когда секция входит в среднюю полосу вьюпорта — надёжно и для очень длинных секций.
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var id = en.target.id;
+      if(!id || seen[id]) return;
+      seen[id] = true;
+      try{ if(window.gtag) gtag("event","view_section",{section:id}); }catch(_){}
+      try{ if(window.ym && CFG.ymCounterId) ym(CFG.ymCounterId,"params",{view_section:id}); }catch(_){}
+      io.unobserve(en.target);
+    });
+  }, {threshold:0, rootMargin:"-45% 0px -45% 0px"});
+  ["why","how","esurf","testday","rent","corporate","community","blog"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) io.observe(el);
+  });
+})();
+</script>
+
 </body>
 </html>
