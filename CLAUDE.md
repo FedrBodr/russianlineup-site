@@ -33,3 +33,5 @@ When adding a CTA, give it `class="js-bot"` and a unique `data-src` so it partic
 `index.html` ships with placeholders that must be filled before go-live (tracked in `CONTENT_TODO.md`): the `SITE_CONFIG` values (also replace `ga4Id` in the `gtag/js?id=` reference if you add the GA4 `<head>` tag), `[цена]`/`[в скобках]` price placeholders in the Электросёрф and Тест-день sections, the commented-out hero YouTube `<iframe>` (needs a video ID), and `og-cover.jpg` (1200×630) for social sharing.
 
 Prices and Telegram community links are public marketing content and live in the page. Bot secrets (token, partner discount username, keys) belong only in the bot's env, never here.
+## Personal OS
+- Операционная модель и статусы Linear: /Users/d.fedorenko/IdeaProjects/fedrbodr/fedrbodr-os/docs/superpowers/runbooks/linear-operating-model.md. Если подключён MCP controlhub — контекст проекта через get_project_context, после содержательной сессии report_checkpoint (idempotency_key обязателен).
