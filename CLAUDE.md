@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Single-page marketing landing for the "Русский Лайнап" brand (electric surfboards, test-days, camps, community). Pure static site — the entire site is one hand-written `index.html` with inline CSS and JS. No build step, no framework, no package.json. UI copy is in Russian.
+Community site of the "Русский Лайнап" brand. `index.html` is the community hub (directions, surf camp, instructors, chats); the electric-surf landing lives in `elektroserf/index.html` (moved from `/` on 2026-10-20). Subpages (`shri-lanka/`, `mysovoe/`, `instruktory/`, blog, moskva/catalog/korporativ) use `blog.css`. `/camp/` and olyasurf.russianlineup.ru are deployed from the separate SurfLanka repo — never add a `camp/` folder here. Pure static site, hand-written HTML with inline CSS and JS. No build step, no framework, no package.json. UI copy is in Russian.
 
 ## Working on it
 
@@ -26,7 +26,7 @@ This landing is the top of a funnel that ends in a Telegram bot (separate repo: 
 2. Every CTA is an `<a class="js-bot" data-src="...">`. The bottom `<script>` intercepts clicks, fires `open_bot` goals to GA4 + Metrika, then asks Metrika for the visitor's `getClientID` (700ms timeout fallback).
 3. It redirects to `https://t.me/<botUsername>?start=<source>__<clientId>`. The bot parses this `start` payload to stitch the web visit to in-Telegram actions — one end-to-end analytics identity. `source` comes from `utm_source` query param if present, else the link's `data-src`.
 
-When adding a CTA, give it `class="js-bot"` and a unique `data-src` so it participates in this flow; don't hardcode `t.me` links.
+Outside `/elektroserf/` the same click handler lives in `/bot.js` (needs `window.SITE_CONFIG`). When adding a CTA, give it `class="js-bot"` and a unique `data-src` so it participates in this flow; don't hardcode `t.me` links.
 
 ## Before publishing / content placeholders
 

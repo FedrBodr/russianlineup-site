@@ -23,7 +23,7 @@ nav .bar{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;align-items:
 .navback{font-size:15px;color:var(--muted);font-weight:600}
 .navback:hover{color:var(--brand);text-decoration:none}
 
-.article{padding:44px 0 20px}
+.article{padding:44px 20px 20px}
 .crumbs{font-size:14px;color:var(--muted);margin-bottom:18px}
 .crumbs a{color:var(--muted)}
 .article h1{font-size:clamp(28px,5vw,44px);line-height:1.12;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
